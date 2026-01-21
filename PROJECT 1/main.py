@@ -1,41 +1,30 @@
 import random
-'''
-1 for snake
--1 for water 
-0 for gun
-'''
-computer = random.choice([-1, 0, 1])
-youstr = input("Enter your choice: ")
-youDict = {"s": 1, "w": -1, "g": 0}
-reverseDict = {1: "Snake", -1: "Water", 0: "Gun"}
 
-you = youDict[youstr]
+choices = {"s": 1, "w": -1, "g": 0}
+names = {1: "Snake", -1: "Water", 0: "Gun"}
 
-# By now we have 2 numbers (variables), you and computer
+while True:
+    computer = random.choice([1, -1, 0])   # NEW random choice each round
+    user = input("\nEnter s (Snake), w (Water), g (Gun) or q to quit: ").lower()
 
-print(f"You chose {reverseDict[you]}\nComputer chose {reverseDict[computer]}")
+    if user == "q":
+        print("Game over!")
+        break
 
-if(computer == you):
-    print("Its a draw")
+    if user not in choices:
+        print("Invalid input! Try again.")
+        continue
 
-else:
-    if(computer ==-1 and you == 1): 
+    you = choices[user]
+
+    print(f"You chose {names[you]}")
+    print(f"Computer chose {names[computer]}")
+
+    result = you - computer
+
+    if result == 0:
+        print("It's a draw!")
+    elif result in (1, -2):
         print("You win!")
-
-    elif(computer ==-1 and you == 0):
-        print("You Lose!")
-
-    elif(computer == 1 and you == -1):
-        print("You lose!")
-
-    elif(computer ==1 and you == 0):
-        print("You Win!")
-
-    elif(computer ==0 and you == -1):
-        print("You Win!")
-
-    elif(computer == 0 and you == 1):
-        print("You Lose!")
-
     else:
-        print("Something went wrong!")
+        print("You lose!")
