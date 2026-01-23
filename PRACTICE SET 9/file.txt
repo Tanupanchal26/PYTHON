@@ -1,0 +1,5 @@
+This is a sample text file.
+It contains multiple lines of text.
+Each line demonstrates different content.
+Python file handling is very useful.
+You can read, write, and manipulate files easily.

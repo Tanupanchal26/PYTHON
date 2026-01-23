@@ -1,0 +1,2 @@
+This is the old file content.
+It will be copied to renamed_by_python.txt
